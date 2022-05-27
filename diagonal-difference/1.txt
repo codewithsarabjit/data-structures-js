@@ -1,0 +1,44 @@
+PROBLEM
+Given a square matrix, calculate the absolute difference between 
+the sums of its diagonals.
+
+Function description
+
+Complete the diagonalDifference function in the editor below.
+
+diagonalDifference takes the following parameter:
+
+int arr[n][m]: an array of integers
+Return
+
+int: the absolute diagonal difference
+
+Output Format
+
+Return the absolute difference between the sums of the matrix's two diagonals as a single integer.
+
+SOLUTION
+/*
+ * Complete the 'diagonalDifference' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts 2D_INTEGER_ARRAY arr as parameter.
+ */
+
+function diagonalDifference(arr) {
+    let absDiff = 0;
+    let diag1Sum = 0;
+    let diag2Sum = 0;
+    for (let i=0;i<arr.length;i++) {
+        for (let j=0;j<arr[i].length;j++) {
+            if (i===j) {
+                diag1Sum += arr[i][j];
+            }
+            if ((i+j)===arr.length-1) {
+                diag2Sum += arr[i][j];
+            }
+        }
+    }
+    absDiff = Math.abs(diag1Sum - diag2Sum)
+    return absDiff
+}
