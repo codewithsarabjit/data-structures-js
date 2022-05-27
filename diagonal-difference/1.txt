@@ -41,4 +41,4 @@ function diagonalDifference(arr) {
     }
     absDiff = Math.abs(diag1Sum - diag2Sum)
     return absDiff
-}
+} 
