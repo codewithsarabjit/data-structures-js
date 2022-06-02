@@ -29,13 +29,17 @@ Print the largest (maximum) hourglass sum found in arr.
 SOLUTION
 
 function hourglassSum(arr) {
-    let sum = 0;
+    let sum = null;
     let hourGlasses = [];
     for (let i=0;i<arr.length;i++) {
         for (let j=0;j<arr.length;j++) {
             if (typeof arr[i+2] !== 'undefined' && typeof arr[i][j+2] !== 'undefined') {
                 let hourGlassSum = arr[i][j] + arr[i][j+1] + arr[i][j+2] + arr[i+1][j+1] + arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2];
-                if (sum < hourGlassSum) sum = hourGlassSum;
+                console.log(arr[i][j], arr[i][j+1], arr[i][j+2]);
+                console.log(" ", arr[i+1][j+1], " ");
+                console.log(arr[i+2][j], arr[i+2][j+1], arr[i+2][j+2]);
+                console.log("SUM", hourGlassSum);
+                if (sum==null || sum < hourGlassSum) sum = hourGlassSum;
             }
         }    
     }
