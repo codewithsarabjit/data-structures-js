@@ -1,0 +1,48 @@
+PROBLEM
+Declare a 2-dimensional array, arr, of n empty arrays. 
+All arrays are zero indexed.
+Declare an integer, lastAnswer, and initialize it to 0.
+
+There are 2 types of queries, given as an array of strings for you to parse:
+1. Query: 1 x y
+Let idx = ((x ^ lastAnswer) % n).
+Append the integer y to arr[idx].
+
+2. Query: 2 x y
+Let idx = ((x ^ lastAnswer) % n).
+Assign the value arr[idx][(y % size(arr[idx]))] to lastAnswer.
+Store the new value of lastAnswer to an answers array.
+
+Function Description
+
+Complete the dynamicArray function below.
+
+dynamicArray has the following parameters:
+- int n: the number of empty arrays to initialize in arr
+- string queries[q]: query strings that contain 3 space-separated integers
+
+Returns
+int[]: the results of each type 2 query in the order they are presented
+
+Input Format
+The first line contains two space-separated integers, n, the size of arr to create, and q, the number of queries, respectively.
+Each of the q subsequent lines contains a query string, queries[i].
+
+SOLUTION
+function dynamicArray(n, queries) {
+    let answers = []
+    let arr = []
+    let lastAnswer = 0
+    for (let i=0;i<n;i++) arr[i] = []
+    for (let i=0;i<queries.length;i++) {
+        let [k, x, y] = queries[i]
+        let idx = ((x ^ lastAnswer) % n)
+        if (k === 1) {
+            arr[idx].push(y)
+        } else {
+            lastAnswer = arr[idx][(y % arr[idx].length)]
+            answers.push(lastAnswer)
+        }
+    }
+    return answers
+}
