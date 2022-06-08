@@ -20,6 +20,9 @@ The second line contains n space-separated integers that describe arr[].
 SOLUTION
 function rotateLeft(d, arr) {
     let output = [...arr];
+    if (arr.length < d) {
+        d = d - arr.length;
+    }
     while (d>0){
         let tempArr = [];
         for (let i=0; i<output.length;i++) {
