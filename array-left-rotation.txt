@@ -18,6 +18,7 @@ the number of left rotations to perform.
 The second line contains n space-separated integers that describe arr[].
 
 SOLUTION
+WORKING SOLUTION BUT NOT OPTIMAL IN TERMS OF PERFORMANCE
 function rotateLeft(d, arr) {
     let output = [...arr];
     if (arr.length < d) {
@@ -37,4 +38,13 @@ function rotateLeft(d, arr) {
         d--;
     }
     return output;
+}
+
+OPTIMAL SOLUTION
+function rotateLeft(d, arr) {
+    while (d) {
+        arr.push(arr.shift());
+        d--;
+    }
+    return arr;
 }
