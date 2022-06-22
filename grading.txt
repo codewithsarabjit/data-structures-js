@@ -27,14 +27,11 @@ Each line i of the n subsequent lines contains a single integer, grades[i].
 
 SOLUTION
 function gradingStudents(grades) {
-    let output = [];
-    let i = 0;
+    let output = [], i = 0;
     while (i<grades.length) {
         let grade = grades[i];
         let diff = 5- (grade % 5);
-        if (grade >= 38 && diff < 3) {
-            grade = grade + diff;
-        }
+        if (grade >= 38 && diff < 3)  grade = grade + diff
         output.push(grade);
         i++;
     }
