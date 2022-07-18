@@ -1,0 +1,30 @@
+PROBLEM
+Function Description
+
+Complete the function kangaroo in the editor below.
+
+kangaroo has the following parameter(s):
+
+int x1, int v1: starting position and jump distance for kangaroo 1
+int x2, int v2: starting position and jump distance for kangaroo 2
+Returns
+
+string: either YES or NO
+
+
+SOLUTION
+/*
+ * Complete the 'kangaroo' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts following parameters:
+ *  1. INTEGER x1
+ *  2. INTEGER v1
+ *  3. INTEGER x2
+ *  4. INTEGER v2
+ */
+
+function kangaroo(x1, v1, x2, v2) {
+    return Math.sign(x1 - x2) === Math.sign(v2 - v1) && 
+          ( v1 === v2 || (x1 - x2) % Math.abs(v2 - v1) === 0) ? "YES" : "NO";
+}
